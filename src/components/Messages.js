@@ -1,9 +1,15 @@
 import React from 'react'
 
-function Messages() {
-    return (
-        <p className='user-message'>Mon message</p>
-    )
+const Messages = ({ pseudo, message, isUser }) => {
+    if (isUser(pseudo)) {
+        return (
+            <p className='user-message'>{message}</p>
+        )
+    } else {
+        return (
+        <p className='not-user-message'><strong>{pseudo}: </strong>{message}</p>
+        )
+    }
 }
 
 export default Messages
